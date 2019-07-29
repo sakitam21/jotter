@@ -1,16 +1,15 @@
 <template>
   <div id="app">
-    <HelloWorld msg="Welcome to Jotter"/>
+    <!--HelloWorld msg="Welcome to Jotter"/-->
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
   }
 }
 </script>
