@@ -1,6 +1,6 @@
 <template>
   <div class="login">
-  	<img src="../assets/avatar.png" alt="avatar" style="width: 60px;height: 60px;" />
+  	<img src="../assets/avatar.png" alt="avatar" style="width: 80px;height: 80px;" />
   	<div class="inputItem">
   		<label>username</label>
     	<input class="input" v-model="username" />
@@ -44,7 +44,7 @@ export default {
           }else{
             console.log(response)
             alert("登录成功")
-            router.push({name:'hello',params:{id:'Welcome to Jotter'}})
+            router.push({name:'main',params:{userid:response.data[0].userid}})
           } 
         }).catch(function(error){
           console.log(error)
@@ -62,10 +62,6 @@ export default {
   text-align: center;
   margin-top: 80px;
   color: #AAAAAA;
-}
-
-.login img{
-  margin-bottom: 20px;
 }
 
 .inputItem{
