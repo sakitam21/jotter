@@ -1,14 +1,14 @@
 <template>
   <div class="login">
-  	<img src="../assets/logo.png" alt="avatar" style="width: 50px;height: 50px;" />
+  	<img src="../assets/avatar.png" alt="avatar" style="width: 60px;height: 60px;" />
   	<div class="inputItem">
   		<label>username</label>
-    	<input class="input" v-model="username" placeholder="username" />
+    	<input class="input" v-model="username" />
 	  </div>
 
 	  <div class="inputItem">
     	<label>password</label>
-    	<input class="input" v-model="password" placeholder="password" />
+    	<input class="input" v-model="password" />
     </div>
 
     <button class="submit" v-on:click="submit">submit</button>
@@ -60,7 +60,12 @@ export default {
 <style scoped>
 .login{
   text-align: center;
-  margin-top: 60px;
+  margin-top: 80px;
+  color: #AAAAAA;
+}
+
+.login img{
+  margin-bottom: 20px;
 }
 
 .inputItem{
@@ -81,18 +86,20 @@ export default {
   width: 150px;
   height: 22px;
   float: right;
-  border:1px solid #66CDAA;
+  color: #AAAAAA;
+  border:1px solid #C1CDCD;
   border-radius: 6px;
 }
 
-.submit{
+.login .submit{
   border:none;
   outline:none;
   width: 54px;
   height: 20px;
+  color: #AAAAAA;
   line-height: 18px;
-  border:1px solid #66CDAA;
   border-radius: 5px;
+  background-color: #EDEDED;
 }
 
 </style>
