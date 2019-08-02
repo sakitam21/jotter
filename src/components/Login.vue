@@ -44,7 +44,7 @@ export default {
           }else{
             console.log(response)
             alert("登录成功")
-            router.push({name:'main',params:{userid:response.data[0].userid}})
+            router.push({name:'index',params:{userid:response.data[0].userid}})
           } 
         }).catch(function(error){
           console.log(error)
@@ -65,7 +65,7 @@ export default {
 }
 
 .inputItem{
-  width: 230px;
+  width: 240px;
   height: 26px;
   margin:5px auto;
 }
@@ -74,6 +74,9 @@ export default {
   width: 75px;
   height: 24px;
   float: left;
+  font-size: 18px;
+  font-weight: 400;
+  margin-right: 10px;
 }
 
 .inputItem .input{
@@ -83,19 +86,23 @@ export default {
   height: 22px;
   float: right;
   color: #AAAAAA;
-  border:1px solid #C1CDCD;
+  font-size: 18px;
+  font-weight: 400;
+  border:1.4px solid #C1CDCD;
   border-radius: 6px;
 }
 
 .login .submit{
   border:none;
   outline:none;
-  width: 54px;
+  width: 60px;
   height: 20px;
   color: #AAAAAA;
   line-height: 18px;
   border-radius: 5px;
   background-color: #EDEDED;
+  font-size: 18px;
+  font-weight: 400;
 }
 
 </style>

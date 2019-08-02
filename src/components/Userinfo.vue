@@ -1,12 +1,13 @@
 <template>
-  <div class="a">
-    <h1>Main</h1>
+  <div class="e">
+    <h1>Userinfo</h1>
+    <h1>{{$route.params.userid}}</h1>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'A',
+  name: 'Userinfo',
   props: {
     
   }

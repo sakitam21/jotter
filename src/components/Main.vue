@@ -1,46 +1,72 @@
 <template>
-  <div class="main">
-    <!--头部-->
-    <div class="header">
-      <!--左侧导航栏-->
-      <div class="list">
-        <div class="listItem">
-          <router-link :to="{name:'main'}">Main</router-link>
-        </div>
-        <div class="listItem">
-          <router-link :to="{name:'b'}">Go to B</router-link>
-        </div>
-        <div class="listItem">
-          <router-link :to="{name:'c'}">Go to C</router-link>
-        </div>
-        <div class="listItem">
-          <router-link :to="{name:'d'}">Go to D</router-link>
-        </div>
-      </div>
+  <div class="layout">
+    <Layout>
 
-      <!--右侧用户信息-->
-      <div class="userinfo">
-        <img src="../assets/avatar.png" alt="avatar" />
-        <select v-model="selected" class="selected">
-          <option>A</option>
-          <option>B</option>
-          <option>C</option>
-        </select>
-      </div>
-    </div>
+      <Header class="header">
+        <Menu mode="horizontal" theme="light" active-name="1" class="list">
+            <div class="layout-nav">
+              <MenuItem name="1">
+                <router-link :to="{name:'index'}">
+                  <Icon type="ios-navigate"></Icon>
+                  Index
+                </router-link>
+              </MenuItem>
+              <MenuItem name="2"> 
+                <router-link :to="{name:'b'}">
+                  <Icon type="ios-keypad"></Icon>
+                  Go to B
+                </router-link>
+              </MenuItem>
+              <MenuItem name="3">
+                <router-link :to="{name:'c'}">
+                  <Icon type="ios-analytics"></Icon>
+                  Go to C
+                </router-link>
+              </MenuItem>
+              <MenuItem name="4">
+                <router-link :to="{name:'d'}">
+                  <Icon type="ios-paper"></Icon>
+                  Go to D
+                </router-link>
+              </MenuItem>
+              </div>
+          </Menu>
+        <div class="userinfo">
+          <Dropdown trigger="click" style="margin-left: 20px">
+          <a href="javascript:void(0)">
+              <img src="../assets/avatar.png" alt="avatar" style="width: 70px;height: 70px;margin:5px 0;" />
+              <Icon type="ios-arrow-down" size="20" style="margin-top: -60px;margin-left: 10px;"></Icon>
+          </a>
+          <DropdownMenu slot="list">
+              <DropdownItem>
+                <router-link :to="{name:'userinfo'}">Userinfo</router-link>
+              </DropdownItem>
+              <DropdownItem>炸酱面</DropdownItem>
+              <DropdownItem>豆汁儿</DropdownItem>
+              <DropdownItem>冰糖葫芦</DropdownItem>
+              <DropdownItem>北京烤鸭</DropdownItem>
+          </DropdownMenu>
+          </Dropdown>
+        </div>
+      </Header>
 
+    
     <!--内容-->
     <div class="content">
       <router-view></router-view>
     </div>
-    <p>{{userid}}</p>
-    <p>{{selected}}</p>
-    <HelloWorld msg="Welcome to Jotter"></HelloWorld>
+
+    <!--底部-->
+    <div class="footer">
+      2011-2016 © TalkingData
+    </div>
+
+    </Layout>
   </div>
 </template>
 
 <script>
-import HelloWorld from './HelloWorld'
+
 
 export default {
   name: 'Main',
@@ -49,7 +75,6 @@ export default {
 
   data:function(){
     return {
-      selected:'',
       userid:0
     }
   },
@@ -59,9 +84,7 @@ export default {
     this.userid=userid
   },
 
-  components:{
-    HelloWorld
-  }
+  
 }
 </script>
 
@@ -73,11 +96,10 @@ a{
   color: black;
 }
 
-.main{
+.layout{
   margin: 0;
   padding: 0;
   width: calc(100vw);
-  height: calc(100vh);
   background-color: #EDEDED;
 }
 
@@ -85,24 +107,14 @@ a{
   width: 100%;
   height: 80px;
   background-color: white;
+  border-bottom:1px solid #EDEDED;
 }
 
 .header .list{
   width: 80%;
-  height: 80px;
+  height: 70px;
+  margin-top: 10px;
   float: left;
-}
-
-.header .list .listItem{
-  display: inline-block;
-  width: 100px;
-  height: 40px;
-  line-height: 40px;
-  float: left;
-  margin-left: 20px;
-  margin-top: 20px;
-  border:1px solid #EDEDED;
-  border-radius: 5px;
 }
 
 .header .userinfo{
@@ -112,19 +124,18 @@ a{
   float: left;
 }
 
-.header .userinfo img{
-  width: 70px;
-  height: 70px;
-  float: left;
-  margin-top: 5px;
-  margin-right: 10px;
+.content{
+  width: 90%;
+  height: 540px;
+  margin: 30px auto;
+  background-color: white;
 }
 
-.header .userinfo .selected{
-  width: 15px;
-  height: 15px;
-  float: left;
-  margin-top: 34px;
-  background-color: #EDEDED;
+.footer{
+  width: 100%;
+  text-align: center;
+  height: 60px;
+  font-size: 14px;
 }
+
 </style>
