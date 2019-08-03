@@ -15,4 +15,15 @@ router.get('/search',function(req,res,next){
 	})
 });
 
+router.post('/searchOne',function(req,res,next){
+
+	var dot_id=req.body.dot_id
+
+	var sql=`select * from newdots where dot_id='${dot_id}'`
+	
+	db.query(sql,[],function(results,fields) {
+		res.send(results);
+	})
+});
+
 module.exports = router;
