@@ -126,7 +126,7 @@ a{
 
 .content{
   width: 90%;
-  height: 1000px;
+  height: 2000px;
   margin: 30px auto;
   background-color: white;
 }
