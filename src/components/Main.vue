@@ -12,9 +12,9 @@
                 </router-link>
               </MenuItem>
               <MenuItem name="2"> 
-                <router-link :to="{name:'b'}">
+                <router-link :to="{name:'blog'}">
                   <Icon type="ios-keypad"></Icon>
-                  Go to B
+                  Blog
                 </router-link>
               </MenuItem>
               <MenuItem name="3">

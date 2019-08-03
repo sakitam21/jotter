@@ -54,22 +54,11 @@
         <HelloWorld msg="Welcome to Jotter"></HelloWorld>
     </div>
 
-
-    <div class="newdots">
-        <ul>
-            <li v-for="(item,index) in newdots" class="dotItem">
-                <router-link :to="{name:'newdot',params:{dot_id:item.dot_id}}">{{item.dot_title}}</router-link>
-            </li>
-        </ul>
-    </div>
-
-
     <h1>Main</h1>
   </div>
 </template>
 
 <script>
-import axios from 'axios'
 import HelloWorld from './HelloWorld'
 
 export default {
@@ -81,25 +70,6 @@ export default {
   components:{
     HelloWorld
   },
-
-  data:function(){
-    return {
-        newdots:[
-        ]
-    }
-  },
-
-  created:function(){
-    const _this=this
-
-    axios.get('http://localhost:3000/newdots/search')
-    .then(function(response){
-        console.log(response.data)
-        _this.newdots=response.data
-    }).catch(function(error){
-        console.log(error)
-    })
-  },
   
 }
 </script>
@@ -107,30 +77,11 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
-a{
-    text-decoration: none;
-    color: black;
-}
-
 .index{
     width: 100%;
 }
 
-.newdots{
-    width: 98%;
-    height: 60px;
-    margin: 10px 1%;
-    background-color: #FFEBCD;
-}
 
-.dotItem{
-    width: 20%;
-    height: 30px;
-    line-height: 30px;
-    text-align: center;
-    display: inline-block;
-    list-style: none;
-}
 
 .partOne{
     width: 100%;

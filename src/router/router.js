@@ -6,7 +6,7 @@ Vue.use(VueRouter);
 import Main from '../components/Main'
 import Login from '../components/Login'
 import Index from '../components/Index'
-import B from '../components/B'
+import Blog from '../components/Blog'
 import C from '../components/C'
 import D from '../components/D'
 import Userinfo from '../components/Userinfo'
@@ -30,9 +30,9 @@ export default new VueRouter({
 					name:'index'
 				},
 				{
-					path:'b',
-					component:B,
-					name:'b'
+					path:'blog',
+					component:Blog,
+					name:'blog'
 				},
 				{
 					path:'c',
