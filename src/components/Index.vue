@@ -148,6 +148,9 @@ a{
     width: 98%;
     height: 140px;
     margin: 50px 10px;
+    line-height: 140px;
+    text-align: center;
+    font-size: 18px;
     background-color: #FFEBCD;
     color: white;
 }
