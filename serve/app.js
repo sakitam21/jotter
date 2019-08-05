@@ -11,6 +11,16 @@ var blogRouter = require('./routes/blog');
 
 var app = express();
 
+//图片上传
+app.use(express.static('public'));
+
+app.get('/public/images/*',function(req,res){
+  res.sendFile(__dirname+"/"+req.url);
+  console.log("Request for"+req.url+"received.");
+})
+
+
+
 //跨域
 app.all('*', function(req, res, next) {
     res.header("Access-Control-Allow-Credentials",true);
