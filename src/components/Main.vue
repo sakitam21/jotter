@@ -57,20 +57,22 @@
     </div>
 
     <!--底部-->
-    <div class="footer">
-      2011-2016 © TalkingData
-    </div>
+    <Footer v-if="isShow"></Footer>
 
     </Layout>
   </div>
 </template>
 
 <script>
-
-
+import Footer from './Footer'
+import {mapState,mapGetters,mapActions} from 'vuex'
 export default {
   name: 'Main',
   props: {
+  },
+
+  components:{
+    Footer
   },
 
   data:function(){
@@ -83,6 +85,31 @@ export default {
     const userid=this.$route.params.userid
     this.userid=userid
   },
+
+  computed:{
+    ...mapState({
+      isShow:state=>state.footerStatus.showFooter
+    }),
+
+    /*
+    ...mapGetters('footerStatus',{
+      isShow:'isShow'
+    })
+    */
+  },
+
+  watch:{
+    $route(to,from){
+
+      console.log(to)
+      if(to.name=='c'||to.name=='d'){
+        this.$store.dispatch('footerStatus/hideFooter')
+      }else{
+        this.$store.dispatch('footerStatus/showFooter')
+      }
+    }
+
+  }
 
   
 }
@@ -129,13 +156,6 @@ a{
   height: 2000px;
   margin: 30px auto;
   background-color: white;
-}
-
-.footer{
-  width: 100%;
-  text-align: center;
-  height: 60px;
-  font-size: 14px;
 }
 
 </style>
