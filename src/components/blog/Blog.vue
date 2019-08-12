@@ -11,6 +11,11 @@
     </div>
 
     <div class="blogList">
+
+      <div class="blogNav">
+        博客列表页
+      </div>
+
       <ul>
         <li v-for="(item,index) in blogList" class="blogItem">
           <router-link :to="{name:'blogItem',params:{blog_id:item.blog_id}}">
@@ -44,6 +49,7 @@ export default {
   created:function(){
     const _this=this
 
+    //newdots
     axios.get('http://localhost:3000/newdots/search')
     .then(function(response){
         console.log(response.data)
@@ -52,6 +58,7 @@ export default {
         console.log(error)
     });
 
+    //blogItem
     axios.post('http://localhost:3000/blog/searchPage',{
       pageIndex:_this.pageIndex,
       pageSize:_this.pageSize
@@ -110,10 +117,20 @@ export default {
 
 .blogList{
   width: 98%;
-  height: 680px;
+  height: 800px;
+  padding: 10px 0 30px 0;
   margin: 10px 1%;
   text-align: center;
   border:1px solid gray;
+}
+
+.blogNav{
+  width: 100%;
+  height: 30px;
+  margin-bottom: 10px;
+  padding: 0 30px 0 30px;
+  background-color: #FFEBCD;
+  text-align: left;
 }
 
 .blogItem{

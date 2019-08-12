@@ -4,14 +4,20 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter);
 
 import Main from '../components/Main'
-import Login from '../components/Login'
 import Index from '../components/Index'
-import Blog from '../components/Blog'
 import C from '../components/C'
 import D from '../components/D'
-import Userinfo from '../components/Userinfo'
-import Newdot from '../components/Newdot'
-import BlogItem from '../components/BlogItem'
+
+
+import Login from '../components/users/Login'
+import Userinfo from '../components/users/Userinfo'
+
+
+import Blog from '../components/blog/Blog'
+import BlogItem from '../components/blog/BlogItem'
+import Newdot from '../components/newdot/Newdot'
+
+
 
 export default new VueRouter({
 	routes:[

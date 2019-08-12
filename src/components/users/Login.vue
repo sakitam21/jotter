@@ -1,6 +1,6 @@
 <template>
   <div class="login">
-  	<img src="../assets/avatar.png" alt="avatar" style="width: 80px;height: 80px;" />
+  	<img src="../../assets/avatar.png" alt="avatar" style="width: 80px;height: 80px;" />
   	<div class="inputItem">
   		<label>username</label>
     	<input class="input" v-model="username" />
@@ -17,7 +17,7 @@
 
 <script>
 import axios from 'axios'
-import router from '../router/router'
+import router from '../../router/router'
 
 export default {
   name: 'Login',
