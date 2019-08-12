@@ -15,6 +15,8 @@ import Userinfo from '../components/users/Userinfo'
 
 import Blog from '../components/blog/Blog'
 import BlogItem from '../components/blog/BlogItem'
+import AddBlog from '../components/blog/AddBlog'
+
 import Newdot from '../components/newdot/Newdot'
 
 
@@ -61,6 +63,7 @@ export default new VueRouter({
 			name:'userinfo'
 		},
 
+
 		//newdots
 		{
 			path:'/newdot/:dot_id',
@@ -74,6 +77,15 @@ export default new VueRouter({
 			component:BlogItem,
 			name:'blogItem'
 		},
+
+		//addblog
+		{
+			path:'/addBlog',
+			component:AddBlog,
+			name:'addBlog'
+		},
+
+
 	],
 	mode:'history'
 })

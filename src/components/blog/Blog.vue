@@ -14,6 +14,7 @@
 
       <div class="blogNav">
         博客列表页
+        <router-link :to="{name:'addBlog'}">AddBlog</router-link>
       </div>
 
       <ul>
@@ -24,7 +25,7 @@
           </router-link>  
         </li>
       </ul>
-      <Page :total="20" :page-size="pageSize" show-total @on-change="changeBlogPage" show-elevator></Page>
+      <Page :total="totalBlog" :page-size="pageSize" show-total @on-change="changeBlogPage" show-elevator></Page>
     </div>
   </div>
 </template>
@@ -42,7 +43,8 @@ export default {
         newdots:[],
         blogList:[],
         pageIndex:0,
-        pageSize:4
+        pageSize:4,
+        totalBlog:0,
     }
   },
 
@@ -58,16 +60,28 @@ export default {
         console.log(error)
     });
 
-    //blogItem
-    axios.post('http://localhost:3000/blog/searchPage',{
-      pageIndex:_this.pageIndex,
-      pageSize:_this.pageSize
-    }).then(function(response){
-      console.log(response.data)
-      _this.blogList=response.data
+    //全局查询
+    axios.get('http://localhost:3000/blog/search')
+    .then(function(response){
+        console.log(response.data)
+        _this.totalBlog=response.data.length
+        if(_this.totalBlog>0){
+          //blogItem
+          axios.post('http://localhost:3000/blog/searchPage',{
+            pageIndex:_this.pageIndex,
+            pageSize:_this.pageSize
+          }).then(function(response){
+            console.log(response.data)
+            _this.blogList=response.data
+          }).catch(function(error){
+            console.log(error)
+          });
+        }
     }).catch(function(error){
-      console.log(error)
+        console.log(error)
     });
+
+    
 
   },
 

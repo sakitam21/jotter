@@ -38,4 +38,18 @@ router.post('/searchOne',function(req,res,next){
 	})
 });
 
+router.post('/addBlog',function(req,res,next){
+
+	var blog_title=req.body.blog_title
+	var blog_author=req.body.blog_author
+	var blog_content=req.body.blog_content
+
+	var sql=`insert into blog(blog_title,blog_author,blog_content) values ('${blog_title}','${blog_author}','${blog_content}')`
+	
+	db.query(sql,[],function(results,fields) {
+		res.send(results);
+	})
+});
+
+
 module.exports = router;
