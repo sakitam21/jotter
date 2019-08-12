@@ -3,27 +3,27 @@
     <Layout>
 
       <Header class="header">
-        <Menu mode="horizontal" theme="light" active-name="1" class="list">
+        <Menu mode="horizontal" theme="light" :active-name="activeName" class="list">
             <div class="layout-nav">
-              <MenuItem name="1">
+              <MenuItem name="index">
                 <router-link :to="{name:'index'}">
                   <Icon type="ios-navigate"></Icon>
                   Index
                 </router-link>
               </MenuItem>
-              <MenuItem name="2"> 
+              <MenuItem name="blog"> 
                 <router-link :to="{name:'blog'}">
                   <Icon type="ios-keypad"></Icon>
                   Blog
                 </router-link>
               </MenuItem>
-              <MenuItem name="3">
+              <MenuItem name="c">
                 <router-link :to="{name:'c'}">
                   <Icon type="ios-analytics"></Icon>
                   Go to C
                 </router-link>
               </MenuItem>
-              <MenuItem name="4">
+              <MenuItem name="d">
                 <router-link :to="{name:'d'}">
                   <Icon type="ios-paper"></Icon>
                   Go to D
@@ -77,13 +77,17 @@ export default {
 
   data:function(){
     return {
-      userid:0
+      userid:0,//用户id
+      activeName:"index",
     }
   },
   
   created:function(){
     const userid=this.$route.params.userid
     this.userid=userid
+
+    console.log(this.$route.name)
+    this.activeName=this.$route.name
   },
 
   computed:{

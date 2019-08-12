@@ -27,4 +27,15 @@ router.post('/searchPage',function(req,res,next){
 	})
 });
 
+router.post('/searchOne',function(req,res,next){
+
+	var blog_id=req.body.blog_id
+
+	var sql=`select * from blog where blog_id='${blog_id}'`
+	
+	db.query(sql,[],function(results,fields) {
+		res.send(results);
+	})
+});
+
 module.exports = router;

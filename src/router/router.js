@@ -11,6 +11,7 @@ import C from '../components/C'
 import D from '../components/D'
 import Userinfo from '../components/Userinfo'
 import Newdot from '../components/Newdot'
+import BlogItem from '../components/BlogItem'
 
 export default new VueRouter({
 	routes:[
@@ -59,6 +60,13 @@ export default new VueRouter({
 			path:'/newdot/:dot_id',
 			component:Newdot,
 			name:'newdot'
+		},
+
+		//blogItem
+		{
+			path:'/blogItem/:blog_id',
+			component:BlogItem,
+			name:'blogItem'
 		},
 	],
 	mode:'history'
